@@ -9,10 +9,13 @@ public class PlayerMovement : MonoBehaviour
     bool canMove;
     Vector2 playerSize;
 
+    Rigidbody2D rb;
+
     // Use this for initialization
     void Start()
     {
-        playerSize = gameObject.GetComponent<SpriteRenderer>().bounds.extents;
+        playerSize = GetComponent<SpriteRenderer>().bounds.extents;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -41,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (canMove)
             {
-                transform.position = mousePos;
+                rb.MovePosition(mousePos);
             }
         }
         else
