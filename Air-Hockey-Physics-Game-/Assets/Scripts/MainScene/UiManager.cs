@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UiManager : MonoBehaviour
 {
@@ -50,5 +51,12 @@ public class UiManager : MonoBehaviour
         puckScript.CenterPuck();
         playerMovement.ResetPosition();
         aiScript.ResetPosition();
+    }
+
+    public void ShowMenu()
+    {
+        Time.timeScale = 1;
+
+        SceneManager.LoadScene("menu");
     }
 }
