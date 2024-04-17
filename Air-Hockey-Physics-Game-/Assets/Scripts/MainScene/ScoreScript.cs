@@ -54,5 +54,8 @@ public class ScoreScript : MonoBehaviour
     {
         AiScore = 0;
         AiScoreTxt.text = PlayerScoreTxt.text = "0";
+
+        PlayerScore = 0;
+        PlayerScoreTxt.text = PlayerScoreTxt.text = "0";
     }
 }
