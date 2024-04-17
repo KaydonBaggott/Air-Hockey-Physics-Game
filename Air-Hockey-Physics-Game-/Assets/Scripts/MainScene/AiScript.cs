@@ -40,13 +40,13 @@ public class AiScript : MonoBehaviour
         switch (GameValues.Difficulty)
         {
             case GameValues.Difficulties.Easy:
-                MaxMovementSpeed = 6;
+                MaxMovementSpeed = 10;
                     break;
             case GameValues.Difficulties.Medium:
-                MaxMovementSpeed = 12;
+                MaxMovementSpeed = 15;
                 break;
             case GameValues.Difficulties.Hard:
-                MaxMovementSpeed = 17;
+                MaxMovementSpeed = 20;
                 break;
 
         }
