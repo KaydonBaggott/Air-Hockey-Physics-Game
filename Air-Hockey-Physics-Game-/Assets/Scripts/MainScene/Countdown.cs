@@ -2,29 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Countdown : MonoBehaviour
+public class CountdownManager : MonoBehaviour
 {
-    float currentTime = 0f;
-    float startingTime = 3f;
+    public TMP_Text countdownText;
+    public float countdownDuration = 5f;
 
-    [SerializeField] TextMeshProUGUI countdownText; // Changed to TextMeshProUGUI
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        currentTime = startingTime;
+        StartCoroutine(StartGameCountdown());
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator StartGameCountdown()
     {
-        currentTime -= Time.deltaTime;
-        countdownText.text = currentTime.ToString("0");
+        float timer = countdownDuration;
 
-        if (currentTime <= 0)
+        while (timer > 0f)
         {
-            currentTime = 0;
+            countdownText.text = Mathf.Ceil(timer).ToString();
+            timer -= Time.deltaTime;
+            yield return null;
         }
+
+        // Start the game (load the Main scene)
+        SceneManager.LoadScene("Main");
     }
 }

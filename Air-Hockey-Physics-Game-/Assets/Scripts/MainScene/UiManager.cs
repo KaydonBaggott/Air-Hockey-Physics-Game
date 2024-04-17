@@ -21,31 +21,6 @@ public class UiManager : MonoBehaviour
     public PlayerMovement playerMovement;
     public AiScript aiScript;
 
-    public float countdownTime = 3f;
-
-    public bool CountdownStarted = false; 
-
-    public void StartCountdown()
-    {
-        if (!CountdownStarted)
-        {
-            StartCoroutine(CountdownCoroutine());
-            CountdownStarted = true;
-        }
-    }
-
-    private System.Collections.IEnumerator CountdownCoroutine()
-    {
-        while (countdownTime > 0)
-        {
-            Debug.Log(countdownTime);
-            yield return new WaitForSeconds(1f);
-            countdownTime--;
-        }
-
-        Debug.Log("GO!");
-    }
-
     public void ShowRestartCanvas(bool didAiWin)
     {
         Time.timeScale = 0;
@@ -77,10 +52,6 @@ public class UiManager : MonoBehaviour
         puckScript.CenterPuck();
         playerMovement.ResetPosition();
         aiScript.ResetPosition();
-
-        countdownTime = 3f;
-        CountdownStarted = false;
-        StartCountdown();
     }
 
     public void ShowMenu()
